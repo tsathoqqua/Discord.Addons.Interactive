@@ -42,7 +42,7 @@ namespace Discord.Addons.Interactive
         public async Task DisplayAsync()
         {
             var embed = BuildEmbed();
-            var message = await Context.Channel.SendMessageAsync(_pager.Content, embed: embed).ConfigureAwait(false);
+            var message = await Context.Channel.SendMessageAsync(_pager.Content, isTTS: false, embed: embed).ConfigureAwait(false);
             Message = message;
             Interactive.AddReactionCallback(message, this);
             // Reactions take a while to add, don't wait for them
